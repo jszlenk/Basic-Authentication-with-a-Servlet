@@ -30,15 +30,13 @@ public class LoginUser extends HttpServlet {
         HttpSession sh = request.getSession();
         sh.setAttribute("authorized_user", wu);
 
-                int cookieLife = 3600 * 24 * 7;
-                Cookie uidCook = new Cookie("credentials_uid", uid);
-                uidCook.setMaxAge(cookieLife);
-                response.addCookie(uidCook);
-                Cookie pwdCook = new Cookie("credentials_pwd", pwd);
-                uidCook.setMaxAge(cookieLife);
-                response.addCookie(pwdCook);
-
-
+        int cookieLife = 3600 * 24 * 7;
+        Cookie uidCook = new Cookie("credentials_uid", uid);
+        uidCook.setMaxAge(cookieLife);
+        response.addCookie(uidCook);
+        Cookie pwdCook = new Cookie("credentials_pwd", pwd);
+        uidCook.setMaxAge(cookieLife);
+        response.addCookie(pwdCook);
 
         String target = ((request.getParameter("dest") == null
                 || request.getParameter("dest").equals(""))

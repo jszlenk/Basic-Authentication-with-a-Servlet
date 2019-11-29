@@ -40,7 +40,7 @@ Add role information to the file tomcat-user.xml
 <user username="Authorized_User" password="password" roles="Authorized_User"/>
 ````
 
-Configure xml file:
+Configure web.xml file:
 
 ````xml
 <?xml version="1.0" encoding="UTF-8"?>
