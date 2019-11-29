@@ -1,48 +1,3 @@
-# Basic Authentication with a Servlet
-
-Authentication within the web.xml
-
-### Instruction
-
-Create a mysql database:
-
-````sql
-create database cities;
-
-use cities;
-
-create table city (
-    id int not null auto_increment primary key,
-    name varchar(50) not null,
-    countryCode varchar(50) not null,
-    district varchar(120),
-    population int
-);
-
-create table code (
-    countryCode varchar(120)
-);
-
-insert into city (name, countryCode, district, population) values ('Poland', 'PL', 'EUR', '39000000');
-
-insert into code (countryCode) values ('DE');
-````
-
-Add role information to the file tomcat-user.xml
-
-````xml
-<user name="tomcat" password="123" roles="manager-gui"/>
-
-  <role rolename="Admin"/>
-  <role rolename="Authorized_user"/>
-
-<user username="Admin" password="password" roles="Admin"/>
-<user username="Authorized_User" password="password" roles="Authorized_User"/>
-````
-
-Configure xml file:
-
-````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -116,9 +71,3 @@ Configure xml file:
     </form-login-config>
 </login-config>
 </web-app>
-````
-
-Add dependencies:
-
-1. jstl-1.2.jar
-2. mysql-connector-java-8.0.18.jar
